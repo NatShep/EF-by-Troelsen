@@ -10,6 +10,8 @@ namespace AutoLotDal_NetStandart.EF
     {
         protected override void Seed(AutoLotEntities context)
         {
+     //       base.Seed(context);
+
             var customers = new List<Customer>
             {
                 new Customer {FirstName = "Dave", LastName = "Brener"},
@@ -44,13 +46,12 @@ namespace AutoLotDal_NetStandart.EF
             context.CreditRisks.AddOrUpdate(x=>new{x.FirstName,x.LastName},
                 new CreditRisk
                 {
-                    CustId = customers[4].CustId,
+                    Id = customers[4].Id,
                     FirstName = customers[4].FirstName,
                     LastName = customers[4].LastName
                 });
             
             
-            base.Seed(context);
             
         }
     }

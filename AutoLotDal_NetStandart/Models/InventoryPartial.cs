@@ -7,7 +7,7 @@ namespace AutoLotDal_NetStandart.Models
         [NotMapped] public string FullName => $"{Make}+({Color})";
         public override string ToString()
         {
-            return $"{this.PetName ?? "**No Name"} is AutoLotDal {this.Color} {this.Make} with ID {this.CarId}.";
+            return $"{this.PetName ?? "**No Name"} is AutoLotDal {this.Color} {this.Make} with ID {this.Id}.";
         }
     }
 }
