@@ -2,6 +2,8 @@
 using System.Data.Entity;
 using AutoLotDal_NetStandart.Models;
 using AutoLotDal_NetStandart.EF;
+using AutoLotDal_NetStandart.Repos;
+using AutoLotTest.Properties;
 
 namespace AutoLotTest
 {
@@ -12,15 +14,19 @@ namespace AutoLotTest
          // Database.SetInitializer(new MyDataInitializer());
             Console.WriteLine("EF data");
 
-            using (var context=new AutoLotEntities())
+            using (var repo = new InventoryRepo())
             {
-                foreach (var inventory in context.Inventory)
+                foreach (var inventory in repo.GetAll())
                 {
                     Console.WriteLine(inventory);
                 }
             }
 
             Console.ReadLine();
+       //     TestMethod.Concurrency();
+            Console.ReadLine();
         }
+        
+        
     }
 }

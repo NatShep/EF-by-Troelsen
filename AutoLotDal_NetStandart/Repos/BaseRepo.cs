@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using AutoLotDal_NetStandart.EF;
+using AutoLotDal_NetStandart.Models;
 using AutoLotDal_NetStandart.Models.Base;
 
 namespace AutoLotDal_NetStandart.Repos
@@ -12,11 +14,13 @@ namespace AutoLotDal_NetStandart.Repos
     {
         private readonly DbSet<T> _table;
         private readonly AutoLotEntities _db;
+        public  AutoLotEntities Context { get; }
 
         public BaseRepo()
         {
             _db=new AutoLotEntities();
             _table = _db.Set<T>();
+            Context = _db;
         }
 
         internal int SaveChanges()
@@ -86,7 +90,7 @@ namespace AutoLotDal_NetStandart.Repos
 
         public T GetOne(int? id) => _table.Find(id);
         
-        public List<T> GetAll() => _table.ToList();
+        public virtual List<T> GetAll() => _table.ToList();
 
         public List<T> ExecuteQuery(string sql) => _table.SqlQuery(sql).ToList();
 

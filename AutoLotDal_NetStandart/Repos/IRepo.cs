@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Data.Entity;
+using AutoLotDal_NetStandart.EF;
 
 namespace AutoLotDal_NetStandart.Repos
 {
@@ -14,5 +16,7 @@ namespace AutoLotDal_NetStandart.Repos
 
         List<T> ExecuteQuery(string sql);
         List<T> ExecuteQuery(string sql, object[] sqlParametersObjects);
+
+        AutoLotEntities Context { get; }
     }
 }
