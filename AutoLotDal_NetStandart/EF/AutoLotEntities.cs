@@ -14,12 +14,12 @@ namespace AutoLotDal_NetStandart.EF
             : base("name=AutoLotConnection")
         {
             //----------------to do for interseption
-           // DbInterception.Add(new ConsoleWriterInterceptor());
-           //---------------to do for DataBaseLogger
-       //    DatabaseLogger.StartLogging();
-        //   DbInterception.Add(DatabaseLogger);
+            // DbInterception.Add(new ConsoleWriterInterceptor());
+            //---------------to do for DataBaseLogger
+            //    DatabaseLogger.StartLogging();
+            //   DbInterception.Add(DatabaseLogger);
         
-        //---------------to do for objectContext interseption
+            //---------------to do for objectContext interseption
         var context = (this as IObjectContextAdapter).ObjectContext;
         context.ObjectMaterialized += OnObjectMaterialized;
 

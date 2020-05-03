@@ -10,8 +10,6 @@ namespace AutoLotDal_NetStandart.EF
     {
         protected override void Seed(AutoLotEntities context)
         {
-     //       base.Seed(context);
-
             var customers = new List<Customer>
             {
                 new Customer {FirstName = "Dave", LastName = "Brener"},
